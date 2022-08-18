@@ -2,7 +2,7 @@
 
 Name:           rhvoice
 Version:        1.8.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Free and open source speech synthesizer
 
 License:        LGPLv2.1+
@@ -23,10 +23,11 @@ BuildRequires:  python3-lxml
     
 Requires:       speech-dispatcher
 Requires:       libao
-Requires:       pipewire-pulseaudio
+
+Suggests:       pipewire-pulseaudio
 Suggests:       portaudio
 Suggests:       pulseaudio
-    
+
 Requires:       %{name}-american-english 
 Requires:       %{name}-utils
 Requires:       %{name}-speech-dispatcher-plugin
@@ -98,7 +99,6 @@ Requires:       %{name}
 %description    brazilian-portuguese
 This package contains Brazilian Portuguese voices resources for RHVoice.
 
-
 %package        albanian
 License:        CC-BY-SA-4.0
 Summary:        Albanian voices for RHVoice
@@ -109,7 +109,6 @@ Requires:       %{name}
 %description    albanian
 This package contains Albanian voices resources for RHVoice.
 
-
 %package        tatar
 License:        CC-BY-SA-4.0
 Summary:        Tatar voices for RHVoice
@@ -119,7 +118,6 @@ Requires:       %{name}
 
 %description    tatar
 This package contains Tatar voices resources for RHVoice.
-
 
 %package        macedonian
 License:        CC-BY-SA-4.0
@@ -151,15 +149,15 @@ This package contains helper utilities for RHVoice
 %package        devel
 Summary:        Development files for RHVoice
 
+%description    devel
+This package contains necessary header files for RHVoice-based applications development.
+
 %package        speech-dispatcher-plugin
 Summary:        Speech dispatcher plugin based on RHVoice
 Requires:      %{name}
 
 %description    speech-dispatcher-plugin
 This package contains speech dispatcher plugin based on RHVoice.
-
-%description    devel
-This package contains necessary header files for RHVoice-based applications development.
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -271,6 +269,9 @@ scons DESTDIR=$RPM_BUILD_ROOT install
 %ghost %{_datadir}/RHVoice/voices/natia/*
 
 %changelog
+* Thu Aug 18 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-4
+- Dropped pipewire-pulseaudio as required dependency
+
 * Thu Aug 18 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-3
 - Changed license to LGPLv2.1 or later
 - Split Scottish English and American English
