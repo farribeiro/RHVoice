@@ -2,7 +2,7 @@
 
 WAYLAND_CMD="wl-paste |"
 XORG_CMD="xclip -out -selection clipboard |"
-SELECTION_CMD="xclip -out"
+SELECTION_CMD="xclip -out |"
 
 INPUT_TYPE="clipboard"
 

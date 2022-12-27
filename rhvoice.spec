@@ -2,7 +2,7 @@
 
 Name:           rhvoice
 Version:        1.8.0
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Free and open source speech synthesizer
 
 License:        LGPLv2.1+
@@ -306,6 +306,9 @@ install -m 755 %{SOURCE4}  %{buildroot}/%{_bindir}/talktext.sh
 %ghost %{_datadir}/RHVoice/voices/natia/*
 
 %changelog
+* Tue Dec 27 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-7
+- talktext.sh script: Added missing pipe in SELECTION_CMD variable
+
 * Tue Dec 27 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-6
 - fix typos on help function
 - Changed default shell to bash
