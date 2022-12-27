@@ -11,7 +11,7 @@ Source0:        https://github.com/RHVoice/RHVoice/releases/download/%{version}/
 Source1:        dict-from-libreoffice.txt
 Source2:        dict-from-biglinux.txt
 Source3:		cuintle-dict.txt
-Source4:		talktext
+Source4:		talktext.sh
 
 ExclusiveArch:  x86_64
 
@@ -201,13 +201,13 @@ install -m 644 %{SOURCE1} %{buildroot}/%{datadir}/RHVoice/languages/Brazilian-Po
 install -m 644 %{SOURCE2} %{buildroot}/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/dict-from-biglinux.txt
 install -m 644 %{SOURCE3} %{buildroot}/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/cuintle-dict.txt
 
-install -m 755 %{SOURCE4}  %{buildroot}/%{bindir}/talktext
+install -m 755 %{SOURCE4}  %{buildroot}/%{bindir}/talktext.sh
 
 %files
 %doc README.md
 %license LICENSE.md
 
-%{_bindir}/talktext
+%{_bindir}/talktext.sh
 
 %{_libdir}/libRHVoice.so
 %{_libdir}/libRHVoice.so.*
@@ -306,6 +306,10 @@ install -m 755 %{SOURCE4}  %{buildroot}/%{bindir}/talktext
 %ghost %{_datadir}/RHVoice/voices/natia/*
 
 %changelog
+* Tue Dec 27 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-5
+- Added package brazilian-portuguese-extra-dictionaries with extra dictionaries for Brazilian Portuguese
+- Added talktext script to read text from clipboard or selection using RHVoice
+
 * Thu Aug 18 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-4
 - Dropped pipewire-pulseaudio as required dependency
 
