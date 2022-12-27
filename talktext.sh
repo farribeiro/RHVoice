@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#! /usr/bin/env bash
 
 WAYLAND_CMD="wl-paste |"
 XORG_CMD="xclip -out -selection clipboard |"
@@ -12,7 +12,7 @@ PTBR_VOICE="Letícia-F123"
 TALKABLE_INPUT="sed 's|\btb\b|também|gI;s|\bvc\b|você|gI;s|\btd\b|tudo|gI;s|\bpq\b|porquê|gI;s|\bhj\b|hoje|gI;s|#|réchitégui- |g;s|/|-barra-|g;s|%|-porcento|g;s|@|arrôba-|g;s|gmail|gê-mê-yú|g;s|.com|-pontukôm|g' |"
 
 HELP_MSG="""
-Usage: talktext [OPTIONS]
+Usage: talktext.sh [OPTIONS]
 Speak copied or selected text using RHVoice
 
 Defaults to pt_BR on Wayland.
@@ -25,8 +25,8 @@ Defaults to pt_BR on Wayland.
   --help                   display this help and exit
 
 Examples:
-  talktext --pt
-  talktext --en --selection
+  talktext.sh --pt
+  talktext.sh --en --selection
 """
 function show_help() {
 	echo "$HELP_MSG"

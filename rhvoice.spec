@@ -2,7 +2,7 @@
 
 Name:           rhvoice
 Version:        1.8.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Free and open source speech synthesizer
 
 License:        LGPLv2.1+
@@ -306,6 +306,10 @@ install -m 755 %{SOURCE4}  %{buildroot}/%{_bindir}/talktext.sh
 %ghost %{_datadir}/RHVoice/voices/natia/*
 
 %changelog
+* Tue Dec 27 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-6
+- fix typos on help function
+- Changed default shell to bash
+
 * Tue Dec 27 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-5
 - Added package brazilian-portuguese-extra-dictionaries with extra dictionaries for Brazilian Portuguese
 - Added talktext script to read text from clipboard or selection using RHVoice
