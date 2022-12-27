@@ -2,12 +2,16 @@
 
 Name:           rhvoice
 Version:        1.8.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Free and open source speech synthesizer
 
 License:        LGPLv2.1+
 URL:            https://github.com/Olga-Yakovleva
 Source0:        https://github.com/RHVoice/RHVoice/releases/download/%{version}/%{name}-%{version}.tar.gz
+Source1:        dict-from-libreoffice.txt
+Source2:        dict-from-biglinux.txt
+Source3:		cuintle-dict.txt
+Source4:		talktext
 
 ExclusiveArch:  x86_64
 
@@ -20,9 +24,16 @@ BuildRequires:  portaudio-devel
   
 BuildRequires:  speech-dispatcher-devel
 BuildRequires:  python3-lxml
-    
+
 Requires:       speech-dispatcher
 Requires:       libao
+
+# Extra Requires
+# Using this to provide extra functionalities
+Requires:		speech-dispatcher-utils
+Requires:		wl-clipboard
+Requires:		xclip
+Requires:       orca
 
 Suggests:       pipewire-pulseaudio
 Suggests:       portaudio
@@ -94,10 +105,21 @@ License:        CC-BY-SA-4.0
 Summary:        Brazilian Portuguese voices for RHVoice
 BuildArch:      noarch
     
-Requires:       %{name}
+Requires:       %{name}-brazilian-portuguese-extra-dictionaries
 
 %description    brazilian-portuguese
 This package contains Brazilian Portuguese voices resources for RHVoice.
+
+
+%package        brazilian-portuguese-extra-dictionaries
+License:        CC-BY-SA-4.0
+Summary:        Brazilian Portuguese extra dictionaries for RHVoice
+BuildArch:      noarch
+    
+Requires:       %{name}-brazilian-portuguese
+
+%description    brazilian-portuguese-extra-dictionaries
+This package contains Brazilian Portuguese extra dictionaries for RHVoice
 
 %package        albanian
 License:        CC-BY-SA-4.0
@@ -173,9 +195,18 @@ scons prefix=%{_prefix} \
 rm -rf $RPM_BUILD_ROOT
 scons DESTDIR=$RPM_BUILD_ROOT install
 
+
+install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src
+install -m 644 %{SOURCE2} $RPM_BUILD_ROOT/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src
+install -m 644 %{SOURCE3} $RPM_BUILD_ROOT/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src
+
+install -m 755 %{SOURCE4} $RPM_BUILD_ROOT/%{bindir}
+
 %files
 %doc README.md
 %license LICENSE.md
+
+%{_bindir}/talktext
 
 %{_libdir}/libRHVoice.so
 %{_libdir}/libRHVoice.so.*
@@ -234,6 +265,11 @@ scons DESTDIR=$RPM_BUILD_ROOT install
 %files brazilian-portuguese
 %{_datadir}/RHVoice/languages/Brazilian-Portuguese/*
 %{_datadir}/RHVoice/voices/Leticia-F123/*
+
+%files brazilian-portuguese-extra-dictionaries
+%{_datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/dict-from-libreoffice.txt
+%{_datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/dict-from-biglinux.txt
+%{_datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/cuintle-dict.txt
 
 %files scottish-english
 %{_datadir}/RHVoice/voices/alan/*
@@ -309,7 +345,7 @@ scons DESTDIR=$RPM_BUILD_ROOT install
 * Thu Sep 10 2020 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.2.2-1
 - New version (git version)
 - Brazilian Portuguese language support (LetÃ­cia-F123 voice)
-- Licence and Readme files
+- License and Readme files
 - New Russian voice (Artemiy)
 - nonfree sub-package
 
