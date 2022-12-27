@@ -195,13 +195,13 @@ scons prefix=%{_prefix} \
 rm -rf $RPM_BUILD_ROOT
 scons DESTDIR=$RPM_BUILD_ROOT install
 
-mkdir -p $RPM_BUILD_ROOT/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src
 
-install -m 644 %{SOURCE1} %{buildroot}/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/dict-from-libreoffice.txt
-install -m 644 %{SOURCE2} %{buildroot}/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/dict-from-biglinux.txt
-install -m 644 %{SOURCE3} %{buildroot}/%{datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/cuintle-dict.txt
+install -m 644 %{SOURCE1} %{buildroot}/%{_datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/dict-from-libreoffice.txt
+install -m 644 %{SOURCE2} %{buildroot}/%{_datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/dict-from-biglinux.txt
+install -m 644 %{SOURCE3} %{buildroot}/%{_datadir}/RHVoice/languages/Brazilian-Portuguese/userdict/src/cuintle-dict.txt
 
-install -m 755 %{SOURCE4}  %{buildroot}/%{bindir}/talktext.sh
+install -m 755 %{SOURCE4}  %{buildroot}/%{_bindir}/talktext.sh
 
 %files
 %doc README.md
