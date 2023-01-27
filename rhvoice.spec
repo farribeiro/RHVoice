@@ -2,7 +2,7 @@
 
 Name:           rhvoice
 Version:        1.8.0
-Release:        9%{?dist}
+Release:        10%{?dist}
 Summary:        Free and open source speech synthesizer
 
 License:        LGPLv2.1+
@@ -44,6 +44,7 @@ Requires:       %{name}-utils
 Requires:       %{name}-speech-dispatcher-plugin
 
 Obsoletes:      %{name} < %{version}-%{release}
+Conflicts:      %{name} < %{version}-%{release}
 
 %description
 RHVoice is a free and open source speech synthesizer by Olga Yakovleva.
