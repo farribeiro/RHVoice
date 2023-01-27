@@ -2,7 +2,7 @@
 
 Name:           rhvoice
 Version:        1.8.0
-Release:        8%{?dist}
+Release:        9%{?dist}
 Summary:        Free and open source speech synthesizer
 
 License:        LGPLv2.1+
