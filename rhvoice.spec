@@ -309,6 +309,9 @@ install -m 755 %{SOURCE4}  %{buildroot}/%{_bindir}/talktext.sh
 %ghost %{_datadir}/RHVoice/voices/natia/*
 
 %changelog
+* Fri Jan 27 2023 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-10
+- Fix packaging bug (remaining old versions)
+
 * Tue Dec 27 2022 Xoloitzcuintle <xoloitzcuintle_god@protonmail.com> - 1.8.0-7
 - talktext.sh script: Added missing pipe in SELECTION_CMD variable
 
