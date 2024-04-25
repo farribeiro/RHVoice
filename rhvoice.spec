@@ -13,7 +13,7 @@ Source2:        dict-from-biglinux.txt
 Source3:		cuintle-dict.txt
 Source4:		talktext.sh
 
-ExclusiveArch:  x86_64
+#ExclusiveArch:  x86_64
 
 BuildRequires:  gcc-c++
 BuildRequires:  python3-scons
